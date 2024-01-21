@@ -1,5 +1,4 @@
 "use client";
-import React, { useState } from "react";
 import CourseCard from "./CourseCard";
 import {
   FRONTEND,
@@ -7,10 +6,20 @@ import {
 } from "@/app/commons/constants/RoadmapLists";
 import { motion } from "framer-motion";
 import useHasMounted from "@/app/commons/components/hooks/useHasMounted";
+import { useRouter, useSearchParams } from "next/navigation";
 
 function CourseList() {
-  const [open, setOpen] = useState(1);
   const mounted = useHasMounted();
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  const currentPage = searchParams.get("page") || "frontend";
+
+  const handleClick = (pageName) => {
+    router.push(`/roadmap?page=${pageName}`);
+  };
+
   if (!mounted) return null;
 
   return (
@@ -19,26 +28,26 @@ function CourseList() {
         <div className="flex items-center gap-4 text-xs justify-center sm:justify-start ">
           <div
             className={`flex items-center cursor-pointer w-fit py-2 px-4 rounded-full font-semibold   ${
-              open === 1
+              currentPage === "frontend"
                 ? "bg-neutral-700 text-neutral-100 dark:bg-neutral-300 dark:text-neutral-800"
                 : "bg-neutral-300 dark:text-neutral-100 dark:bg-neutral-800"
             }`}
-            onClick={() => setOpen(1)}
+            onClick={() => handleClick("frontend")}
           >
             Frontend developer
           </div>
           <div
             className={`flex items-center cursor-pointer w-fit py-2 px-4 rounded-full font-semibold  ${
-              open === 2
+              currentPage === "mastering-react"
                 ? "bg-neutral-700 text-neutral-100 dark:bg-neutral-300 dark:text-neutral-800"
                 : "bg-neutral-300 dark:text-neutral-100 dark:bg-neutral-800"
             }`}
-            onClick={() => setOpen(2)}
+            onClick={() => handleClick("mastering-react")}
           >
             Mastering React js
           </div>
         </div>
-        {open === 1 && (
+        {currentPage === "frontend" && (
           <div className="flex flex-col space-y-2 mt-6">
             {FRONTEND.map((item, index) => (
               <motion.div
@@ -58,7 +67,7 @@ function CourseList() {
             ))}
           </div>
         )}
-        {open === 2 && (
+        {currentPage === "mastering-react" && (
           <div className="flex flex-col space-y-2 mt-6">
             {MASTERING_REACT.map((item, index) => (
               <motion.div

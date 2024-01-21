@@ -124,24 +124,27 @@ const ChatRoom = ({ user }) => {
         className="flex flex-col space-y-4 h-[50vh]  scroll-smooth overflow-y-scroll "
         ref={chatListRef}
       >
-        {loading && <ChatSkeleton />}
-        {messages.map((message) => (
-          <ChatItems
-            key={message.id}
-            created_at={message.createdAt}
-            name={message.user}
-            message={message.text}
-            email={message.email}
-            image={message.image}
-            sessionEmail={user?.email}
-            is_reply={message.is_reply}
-            reply_to={message.reply_message}
-            clickReply={() => handleReplyMessage(message.user)}
-            deleteMessage={() => handleDeleteMessage(message.id)}
-            id={message.id}
-            show={message.is_show}
-          />
-        ))}
+        {loading ? (
+          <ChatSkeleton />
+        ) : (
+          messages.map((message) => (
+            <ChatItems
+              key={message.id}
+              created_at={message.createdAt}
+              name={message.user}
+              message={message.text}
+              email={message.email}
+              image={message.image}
+              sessionEmail={user?.email}
+              is_reply={message.is_reply}
+              reply_to={message.reply_message}
+              clickReply={() => handleReplyMessage(message.user)}
+              deleteMessage={() => handleDeleteMessage(message.id)}
+              id={message.id}
+              show={message.is_show}
+            />
+          ))
+        )}
       </div>
 
       <div className="pt-4">

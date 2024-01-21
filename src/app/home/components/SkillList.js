@@ -1,9 +1,9 @@
-import { HiCode } from 'react-icons/hi'
-import SkillCard from './SkillCard';
-import SectionHeading from './../../commons/components/elements/SectionHeading';
-import SectionSubHeading from './../../commons/components/elements/SectionSubHeading';
-import MarqueeElement from './../../commons/components/elements/MarqueeElements';
-import { STACKS } from './../../commons/constants/stacks';
+import { HiCode } from "react-icons/hi";
+import SkillCard from "./SkillCard";
+import SectionHeading from "./../../commons/components/elements/SectionHeading";
+import SectionSubHeading from "./../../commons/components/elements/SectionSubHeading";
+import MarqueeElement from "./../../commons/components/elements/MarqueeElements";
+import { STACKS } from "./../../commons/constants/stacks";
 export default function SkillList() {
   return (
     <section className="space-y-6">
@@ -14,11 +14,11 @@ export default function SkillList() {
         </SectionSubHeading>
       </div>
 
-      <div className="grid md:grid-cols-12 grid-cols-6 space-y-1">
-              {STACKS.map((stack) => (
-                <SkillCard key={stack.name} name={stack.name} icon={stack.icon}/>
-              ))}
+      <div className="grid md:grid-cols-12 grid-cols-4 gap-2">
+        {STACKS.map((stack, i) => (
+          <SkillCard key={i} {...stack} />
+        ))}
       </div>
     </section>
-  )
+  );
 }

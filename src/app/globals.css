@@ -105,3 +105,74 @@ body {
 ::-webkit-scrollbar-thumb {
   @apply rounded-[3px] border-2 border-neutral-300 bg-neutral-600 dark:bg-neutral-400 ;
 }
+
+.inverted-border-radius-carrer {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  background-color: #fff;
+}
+
+.inverted-border-radius-carrer::before {
+  content: "";
+  position: absolute;
+
+  background-color: transparent;
+  bottom: -50px;
+  left: 0px;
+  right: 0;
+  height: 50px;
+  width: 25px;
+  border-top-left-radius: 12px;
+  box-shadow: 0 -25px 0 0 #fff ;
+  @apply border-t-[1.5px] border-neutral-300 dark:border-neutral-600;
+}
+.inverted-border-radius-carrer::after {
+  content: "";
+  position: absolute;
+
+  background-color: transparent;
+  top: -50px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  width: 25px;
+  border-bottom-left-radius: 12px;
+  box-shadow: 0 25px 0 0 #fff ;
+  @apply border-b-[1.5px] border-neutral-300 dark:border-neutral-600;
+}
+.inverted-border-radius-carrer-dark {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  background-color: #fff;
+}
+
+.inverted-border-radius-carrer-dark::before {
+  content: "";
+  position: absolute;
+
+  background-color: transparent;
+  bottom: -50px;
+  left: 0px;
+  right: 0;
+  height: 50px;
+  width: 25px;
+  border-top-left-radius: 12px;
+  box-shadow: 0 -25px 0 0 #121212 ;
+  @apply border-t-[1.5px] border-neutral-300 dark:border-neutral-600;
+}
+.inverted-border-radius-carrer-dark::after {
+  content: "";
+  position: absolute;
+
+  background-color: transparent;
+  top: -50px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  width: 25px;
+  border-bottom-left-radius: 12px;
+  box-shadow: 0 25px 0 0 #121212 ;
+  @apply border-b-[1.5px] border-neutral-300 dark:border-neutral-600;
+}

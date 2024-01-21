@@ -3,6 +3,7 @@ import { BiBriefcaseAlt2 } from "react-icons/bi";
 import Link from "next/link";
 import SectionHeading from "./../../commons/components/elements/SectionHeading";
 import SectionSubHeading from "../../commons/components/elements/SectionSubHeading";
+import CareerCard from "./CareerCard";
 
 export default function Career() {
   return (
@@ -18,54 +19,9 @@ export default function Career() {
           </p>
         </SectionSubHeading>
         <div className="grid lg:grid-cols-2 gap-4 mt-4">
-          {CareerLists.map(
-            ({
-              name,
-              link,
-              logo,
-              location,
-              date,
-              during,
-              index,
-              profession,
-            }) => {
-              return (
-                <div
-                  key={index}
-                  className="rounded-xl transition-all duration-300 shadow-sm lg:hover:shadow-md flex items-center gap-5 py-4 px-6 border border-neutral-300 dark:border-neutral-800 dark:bg-neutral-800"
-                >
-                  <div className="p-3 bg-neutral-200 dark:bg-neutral-600 rounded-full">
-                    {logo}
-                  </div>
-                  <div className="flex-col flex space-y-2">
-                    <h1>{profession}</h1>
-                    <div className="flex items-center gap-1 md:gap-2 text-xs mt-1">
-                      <Link
-                        href="/"
-                        className="text-neutral-500 dark:text-neutral-400 underline underline-offset-2"
-                      >
-                        {name}
-                      </Link>
-                      <span className="text-neutral-500 dark:text-neutral-400">
-                        •
-                      </span>
-                      <p className="text-neutral-500 dark:text-neutral-400">
-                        {location}
-                      </p>
-                    </div>
-                    <div className="text-xs space-y-1">
-                      <p className="text-neutral-500 dark:text-neutral-400">
-                        {date}
-                      </p>
-                      <p className="text-neutral-500 dark:text-neutral-400">
-                        {during}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            }
-          )}
+          {CareerLists.map((careers, index) => (
+            <CareerCard key={index} {...careers} />
+          ))}
         </div>
       </div>
     </div>

@@ -44,15 +44,20 @@ export default function ChatItems({
               </div>
             )}
           </div>
+          {authorEmail === sessionEmail && (
+            <button onClick={() => deleteMessage(id)} aria-label="delete">
+              <FaTrash size={16} className="text-red-500" />
+            </button>
+          )}
           {/* <span className="text-xs text-neutral-500 ">{time}</span> */}
         </div>
         <div
-          className="flex items-center  mr-2"
+          className="flex items-end mr-6"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
           <div className="flex w-fit max-w-lg overflow-x-auto">
-            <p className=" bg-neutral-100 dark:bg-neutral-800  rounded-xl rounded-tl-sm px-3 py-2 text-sm">
+            <p className=" bg-neutral-200 dark:bg-neutral-800  rounded-xl rounded-tl-sm px-3 py-2 text-sm">
               {is_reply && (
                 <>
                   <span className="text-amber-600 whitespace-nowrap mr-1">
@@ -74,13 +79,8 @@ export default function ChatItems({
                 aria-label="reply"
                 className="ml-1 text-neutral-600 dark:text-neutral-400"
               >
-                <ImReply size={16} />
+                <ImReply size={18} />
               </motion.button>
-              {authorEmail === sessionEmail && (
-                <button onClick={() => deleteMessage(id)} aria-label="delete">
-                  <FaTrash size={16} />
-                </button>
-              )}
             </div>
           )}
         </div>
