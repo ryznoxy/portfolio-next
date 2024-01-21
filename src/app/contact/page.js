@@ -7,7 +7,7 @@ export const metadata = {
   keywords:
     "frontend developer, software engineer, react js, javascript, typescript, contact",
   alternates: {
-    canonical: `${process.env.DOMAIN}/contact`,
+    canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/contact`,
   },
 };
 

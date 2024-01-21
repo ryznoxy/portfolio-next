@@ -7,7 +7,7 @@ export const metadata = {
     "This is my personal dashboard, built with Next.js API routes deployed as serverless functions.",
   keywords: "Next.js , API routes, Dashboard API, Routes Serverless, Functions",
   alternates: {
-    canonical: `${process.env.DOMAIN}/dashboard`,
+    canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/dashboard`,
   },
 };
 export default function Dashboard() {

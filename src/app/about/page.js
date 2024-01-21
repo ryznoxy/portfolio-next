@@ -5,7 +5,7 @@ export const metadata = {
   title: "About | Reza",
   description: "A short story about Reza",
   alternates: {
-    canonical: `${process.env.DOMAIN}/about`,
+    canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/about`,
   },
 };
 
