@@ -3,7 +3,7 @@
 import SectionHeading from "@/app/commons/components/elements/SectionHeading";
 import SectionSubHeading from "@/app/commons/components/elements/SectionSubHeading";
 import { BiLogoGithub } from "react-icons/bi";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import GitHubCalendar from "react-github-calendar";
 import { Tooltip } from "@nextui-org/react";
@@ -14,15 +14,6 @@ import useHasMounted from "@/app/commons/components/hooks/useHasMounted";
 
 function GithubHeader() {
   const { theme, setTheme } = useTheme();
-  const [loading, setLoading] = useState(false);
-  const mounted = useHasMounted();
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, [mounted]);
 
   return (
     <div className="space-y-6">
@@ -42,7 +33,6 @@ function GithubHeader() {
           blockMargin={4}
           blockSize={14}
           fontSize={12}
-          loading={loading ? true : false}
           renderBlock={(block, activity) => (
             <Tooltip
               content={`${activity.count} activities on ${activity.date}`}

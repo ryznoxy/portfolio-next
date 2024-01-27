@@ -20,13 +20,9 @@ function NProgressDone() {
       NProgress.done();
     }, [pathname, searchParams]);
   }, [pathname, searchParams]);
-  return () => {};
+  return;
 }
 
 export default function TopLoader() {
-  return (
-    <>
-      <NProgressDone />
-    </>
-  );
+  return <>{NProgressDone()}</>;
 }

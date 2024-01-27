@@ -4,16 +4,19 @@ import GithubHeader from "./GithubHeader";
 import Header from "./Header";
 import Stats from "./Stats/Stats";
 import Spotify from "./Spotify";
+import PageSpeedInsights from "./PageSpeed";
 
-export default function Index({ githubData }) {
+export default function Index() {
   return (
     <div className="h-full">
       <Header />
       <DashedDivider className={"my-6"} />
-      <Stats />
+      {/* <Stats />
+      <Divider className={"my-6"} /> */}
+      <PageSpeedInsights />
       <Divider className="my-6" />
-      <GithubHeader />
-      <Divider className="my-6" />
+      {/* <GithubHeader />
+      <Divider className="my-6" /> */}
       <Spotify />
     </div>
   );

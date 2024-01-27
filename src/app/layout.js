@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import Layouts from "./commons/components/Layouts";
 import SpotifyTop from "./commons/components/elements/SpotifyTop";
 import TopLoader from "./commons/components/elements/TopLoader";
+import ChatBubble from "./commons/components/elements/ChatBubble";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <SpotifyTop />
           <TopLoader />
+          <ChatBubble />
           <Layouts>{children}</Layouts>
         </Providers>
       </body>
