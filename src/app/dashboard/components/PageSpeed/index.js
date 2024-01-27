@@ -6,13 +6,6 @@ import useSWR from "swr";
 import PathButton from "./components/pathButton";
 import SpeedScore from "./components/SpeedScore";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-import LoadingSpeedInsight from "@/app/commons/components/elements/LoadingSpeedInsight";
-
-const SpeedScores = dynamic(() => import("./components/SpeedScore"), {
-  ssr: false,
-  loading: () => <LoadingSpeedInsight />,
-});
 
 const PageSpeedInsights = () => {
   const baseURL = process.env.NEXT_PUBLIC_BASE_URL_PAGESPEED;
@@ -27,11 +20,7 @@ const PageSpeedInsights = () => {
 
   const fetcher = (url) => fetch(url).then((res) => res.json());
 
-  const { data, error, isLoading, mutate } = useSWR(url, fetcher, {
-    revalidateOnMount: true,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-  });
+  const { data, error, isLoading, mutate } = useSWR(url, fetcher);
 
   const score = {
     performance: data?.lighthouseResult?.categories["performance"].score * 100,
@@ -44,8 +33,8 @@ const PageSpeedInsights = () => {
 
   const refetch = (path) => {
     setActive(path);
-    mutate();
     setUrl(baseURL + path + categoryMap);
+    mutate();
   };
 
   return (
@@ -58,7 +47,7 @@ const PageSpeedInsights = () => {
         </SectionSubHeading>
       </div>
       <PathButton active={active} refetch={refetch} />
-      <SpeedScores data={score} isLoading={isLoading} />
+      <SpeedScore data={score} isLoading={isLoading} />
     </div>
   );
 };

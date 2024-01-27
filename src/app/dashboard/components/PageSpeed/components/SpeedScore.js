@@ -19,7 +19,7 @@ export default function SpeedScore({ data, isLoading }) {
           <p className="text-center text-xs md:text-sm">{dataName[i]}</p>
           <div className="w-13 h-13 md:w-20 md:h-20 ">
             <CircularProgressbar
-              value={Number(item) * 100}
+              value={Number(item || 0) * 100}
               text={item}
               styles={buildStyles({
                 textColor: "#008800",
