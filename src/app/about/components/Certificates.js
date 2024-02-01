@@ -3,7 +3,6 @@ import SectionSubHeading from "@/app/commons/components/elements/SectionSubHeadi
 import { BiBarcode } from "react-icons/bi";
 import CertificatesCard from "./CertificatesCard";
 import { CERTIFICATELISTS } from "@/app/commons/constants/CertificateLists";
-import SwiperCertificate from "./SwiperCertificate/Certificate";
 
 export default function Certificates() {
   return (
@@ -35,9 +34,7 @@ export default function Certificates() {
           );
         })}
       </div>
-      {/* <div className="">
-        <SwiperCertificate />
-      </div> */}
+      
     </div>
   );
 }

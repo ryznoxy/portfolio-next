@@ -33,7 +33,6 @@
     "react-firebase-hooks": "^5.1.1",
     "react-github-calendar": "^4.0.6",
     "react-icons": "^4.11.0",
-    "swiper": "^11.0.5",
     "swr": "^2.2.4",
     "uuid": "^9.0.1"
   },

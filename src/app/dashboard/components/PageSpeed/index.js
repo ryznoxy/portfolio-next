@@ -8,7 +8,8 @@ import SpeedScore from "./components/SpeedScore";
 import Link from "next/link";
 
 const PageSpeedInsights = () => {
-  const baseURL = process.env.NEXT_PUBLIC_BASE_URL_PAGESPEED;
+  const domainTarget = process.env.NEXT_PUBLIC_DOMAIN;
+  const baseURL = process.env.NEXT_PUBLIC_BASE_URL_PAGESPEED + domainTarget;
 
   const category = ["PERFORMANCE", "ACCESSIBILITY", "BEST_PRACTICES", "SEO"];
   const categoryMap = category
