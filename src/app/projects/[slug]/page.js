@@ -27,3 +27,4 @@ const ProjectDetailPage = async ({ params }) => {
 };
 
 export default ProjectDetailPage;
+
