@@ -11,6 +11,7 @@
   "dependencies": {
     "@formspree/react": "^2.5.1",
     "@nextui-org/react": "^2.1.13",
+    "@sanity/image-url": "^1.0.2",
     "@uidotdev/usehooks": "^2.4.1",
     "aos": "^2.3.4",
     "axios": "^1.6.1",
@@ -21,6 +22,7 @@
     "firebase-admin": "^11.11.1",
     "framer-motion": "^10.16.4",
     "next": "^14.0.3",
+    "next-sanity": "^7.0.17",
     "next-themes": "^0.2.1",
     "nextjs-toploader": "^1.6.4",
     "nprogress": "^0.2.0",

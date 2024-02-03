@@ -5,16 +5,20 @@ import SectionHeading from "@/app/commons/components/elements/SectionHeading";
 import SectionSubHeading from "@/app/commons/components/elements/SectionSubHeading";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
-import { PROJECTSLISTS } from "@/app/commons/constants/ProjectsLists";
+import { urlFor } from "@/app/lib/sanityImageUrl";
 
 const LazyprojectCard = dynamic(() => import("./ProjectCards"));
 
-export default function ProjectsLists() {
-  const filteredProjects = PROJECTSLISTS.filter((project) => project?.is_show);
+export default function ProjectsLists({ PROJECT }) {
+  const filteredProjects = PROJECT?.filter((project) => project?.is_show);
 
   if (filteredProjects.length === 0) {
     return <SectionHeading title={"No Projects Found"} />;
   }
+
+  const imageUrl = (source) => {
+    return urlFor(source).url();
+  };
 
   return (
     <div className="">
@@ -41,14 +45,13 @@ export default function ProjectsLists() {
                 is_featured={project.is_featured}
                 Index={index}
                 key={index}
-                image={project.image}
+                image={imageUrl(project.image)}
                 title={project.title}
                 description={project.description}
                 tech_stack={project.tech_stack}
-                slug={project.slug}
+                slug={project.slug.current}
                 link_demo={project.link_demo}
                 link_github={project.link_github}
-                tooltip={project.tooltip}
               />
               {/* <LazyprojectCard
                 is_featured={project.is_featured}

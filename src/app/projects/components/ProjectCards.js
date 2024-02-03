@@ -5,6 +5,7 @@ import { BiPin, BiRightArrowAlt } from "react-icons/bi";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { STACKS_LIST } from "@/app/commons/constants/SkillLists";
 
 export default function ProjectsCards({
   is_featured,
@@ -13,7 +14,6 @@ export default function ProjectsCards({
   title,
   description,
   tech_stack,
-  tooltip,
   Index,
 }) {
   const mounted = useHasMounted();
@@ -56,9 +56,8 @@ export default function ProjectsCards({
               <h1 className="text-xl group-hover:text-teal-500">{title}</h1>
               <p className="line-clamp-2 text-sm">{description}</p>
               <div className="flex gap-2 pt-2">
-                {tech_stack.map((children) => {
-                  return <>{children.icon}</>;
-                })}
+                {tech_stack.map((children) => STACKS_LIST[children])}
+                {tech_stack}
               </div>
             </div>
           </div>

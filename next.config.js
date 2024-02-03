@@ -13,6 +13,9 @@ const nextConfig = {
       },
       {
         hostname: "lh3.googleusercontent.com",
+      },
+      {
+        hostname: "cdn.sanity.io",
       }
     ],
   },

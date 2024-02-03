@@ -23,6 +23,7 @@ export default function SpeedScore({ data, isLoading }) {
               showValueLabel={true}
               strokeWidth={10}
               size="lg"
+              aria-label="progress-circle"
               classNames={{
                 svg: "w-16 h-16 md:w-20 md:h-20",
                 value: "text-1xl font-semibold ",
