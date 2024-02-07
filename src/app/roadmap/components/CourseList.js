@@ -7,6 +7,7 @@ import {
 import { motion } from "framer-motion";
 import useHasMounted from "@/app/commons/components/hooks/useHasMounted";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 function CourseList() {
   const mounted = useHasMounted();
@@ -14,8 +15,8 @@ function CourseList() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const currentPage = searchParams.get("page") || "frontend";
-
+  const currentPage =
+    searchParams.get("page") || router.push(`/roadmap?page=frontend`);
   const handleClick = (pageName) => {
     router.push(`/roadmap?page=${pageName}`);
   };

@@ -1,10 +1,10 @@
 import dynamic from "next/dynamic";
-import ChatRoom from "./Chat";
+import ChatRoom from "./components/Chat";
 
-const NoSSR = dynamic(() => import("./Chat"), { ssr: false });
+const NoSSR = dynamic(() => import("./components/Chat"), { ssr: false });
 
 export const metadata = {
-  title: "Chat | Reza",
+  title: "Chat ",
   description: "A short story about Reza",
 };
 

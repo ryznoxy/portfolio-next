@@ -49,12 +49,12 @@ export default {
       },
     },
     {
-      name: 'startDate',
+      name: 'start_date',
       title: 'Tanggal Mulai',
       type: 'date',
     },
     {
-      name: 'endDate',
+      name: 'end_date',
       title: 'Tanggal Selesai (Opsional)',
       type: 'date',
     },

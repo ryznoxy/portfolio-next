@@ -1,23 +1,28 @@
-import { groq } from "next-sanity";
+import SectionHeading from "@/app/commons/components/elements/SectionHeading";
 import ProjectLists from "./ProjectLists";
-import { client } from "@/app/lib/sanity";
+import SectionSubHeading from "@/app/commons/components/elements/SectionSubHeading";
+import DashedDivider from "@/app/commons/components/elements/DashedDivider";
 
-async function getDataProjects() {
-  const query = groq`*[_type == "projects"] | order(_createdAt desc)`;
-
-  const data = await client.fetch(query);
-
-  return data;
-}
 export const dynamic = "force-dynamic";
 export const revalidate = 60;
 
-export default async function Index() {
-  const data = await getDataProjects();
-
+export default function Index() {
   return (
     <div className="h-full">
-      <ProjectLists PROJECT={data} />
+      <div className="space-y-6">
+        <div className="space-y-2">
+          <SectionHeading title="Projects" />
+          <SectionSubHeading>
+            <p className="dark:text-neutral-400">
+              Showcasing my passion for technology, design, and problem-solving
+              through code.
+            </p>
+          </SectionSubHeading>
+        </div>
+        <DashedDivider />
+
+        <ProjectLists />
+      </div>
     </div>
   );
 }

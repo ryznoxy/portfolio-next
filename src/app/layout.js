@@ -5,6 +5,7 @@ import Layouts from "./commons/components/Layouts";
 import SpotifyTop from "./commons/components/elements/SpotifyTop";
 import TopLoader from "./commons/components/elements/TopLoader";
 import ChatBubble from "./commons/components/elements/ChatBubble";
+import NextTopLoader from "nextjs-toploader";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,29 +18,39 @@ const sora = Sora({
 });
 
 export const metadata = {
-  title: "Home | Reza",
+  title: {
+    template: "%s | Reza",
+    default: "Reza",
+  },
   description: "Personal website, portfolio, roadmap, and more",
-  keywords:
-    "Ryznoxy ,Portfolio,ryznoxy Portfolio,Reza, Reza Portfolio,ryznoxy my id,ryznoxy Reza Portfolio,Reza",
+  keywords: [
+    "Ryznoxy",
+    "Portfolio",
+    "ryznoxy Portfolio",
+    "Reza",
+    "Reza Portfolio",
+    "ryznoxy my id",
+    "ryznoxy Reza Portfolio",
+    "Reza",
+  ],
+  authors: [{ name: "Reza" }, { name: "Adi", url: "https://ryznoxy.my.id" }],
   creator: "Reza Adi N",
   openGraph: {
-    title: "Reza - Personal Website",
-    description:
-      "Personal website, portfolio, roadmap, and more of Ryznoxy AKA Reza",
+    title: "Reza Adi N",
+    description: "Personal website, portfolio, roadmap, and more of Reza Adi N",
     url: "https://ryznox.my.id/",
-    siteName: "Ryznoxy",
+    siteName: "Reza",
     images: [
       {
         url: "https://res.cloudinary.com/dxgsqxdi3/image/upload/f_auto,q_auto/ohc78qqittlujanfbobr",
         width: 1200,
         height: 630,
+        alt: "Reza",
       },
     ],
     locale: "id_ID",
     type: "website",
   },
-  profile:
-    "https://res.cloudinary.com/dxgsqxdi3/image/upload/f_auto,q_auto/ohc78qqittlujanfbobr",
 };
 
 export default function RootLayout({ children }) {
@@ -48,7 +59,8 @@ export default function RootLayout({ children }) {
       <body className={sora.className}>
         <Providers>
           <SpotifyTop />
-          <TopLoader />
+          {/* <TopLoader /> */}
+          <NextTopLoader />
           <ChatBubble />
           <Layouts>{children}</Layouts>
         </Providers>

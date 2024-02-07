@@ -57,7 +57,6 @@ export default function ProjectsCards({
               <p className="line-clamp-2 text-sm">{description}</p>
               <div className="flex gap-2 pt-2">
                 {tech_stack.map((children) => STACKS_LIST[children])}
-                {tech_stack}
               </div>
             </div>
           </div>

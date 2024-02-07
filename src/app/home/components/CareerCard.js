@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import useHasMounted from "@/app/commons/components/hooks/useHasMounted";
+import { urlFor } from "@/app/lib/sanityImageUrl";
 
 export default function CareerCard({
   position,
@@ -33,6 +34,15 @@ export default function CareerCard({
     durationText += `${durationMonths} Month${durationMonths > 1 ? "s" : ""}`;
   }
 
+  const imageUrl = (source) => {
+    if (source) {
+      return urlFor(source).url();
+    }
+  };
+
+  const dontHaveLogoURL =
+    "https://res.cloudinary.com/dxgsqxdi3/image/upload/f_auto,q_auto/ukhe5phqaai5gq6nmtie";
+
   if (!mounted) return null;
 
   return (
@@ -46,23 +56,30 @@ export default function CareerCard({
             resolvedTheme === "light"
               ? " inverted-border-radius-carrer "
               : " inverted-border-radius-carrer-dark "
-          }  rounded-r-xl border border-l-0 border-neutral-300 dark:border-neutral-600 bg-white dark:bg-dark `}
+          }  rounded-r-xl border border-l-0 border-neutral-300 dark:border-neutral-600 bg-white dark:bg-dark`}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
+            className="justify-center items-center flex p-3 relative z-[1]"
           >
             {logo ? (
               <Image
-                src={logo}
+                src={imageUrl(logo)}
                 width={150}
                 height={150}
                 alt={company}
-                className=" transition-all duration-300 ease-in-out dark:invert  bg-blend-lighten z-[0]"
+                className=" transition-all duration-300 ease-in-out  w-20"
               />
             ) : (
-              <CompanyIcon size={50} />
+              <Image
+                src={dontHaveLogoURL}
+                width={150}
+                height={150}
+                alt={company}
+                className=" transition-all duration-300 ease-in-out dark:invert  bg-blend-lighten scale-[1.7]"
+              />
             )}
           </motion.div>
         </motion.div>

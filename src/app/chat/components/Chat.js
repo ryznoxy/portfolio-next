@@ -1,14 +1,14 @@
 "use client";
-import ContainerAOS from "../commons/components/elements/ContainerAOS";
+import ContainerAOS from "../../commons/components/elements/ContainerAOS";
 import ChatRoom from "@/modules/chat";
 import Login from "@/modules/chat/login";
 import Logout from "@/modules/chat/logout";
-import SectionHeading from "../commons/components/elements/SectionHeading";
-import SectionSubHeading from "../commons/components/elements/SectionSubHeading";
+import SectionHeading from "../../commons/components/elements/SectionHeading";
+import SectionSubHeading from "../../commons/components/elements/SectionSubHeading";
 
-import { auth } from "../lib/firebase";
+import { auth } from "../../lib/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import DashedDivider from "../commons/components/elements/DashedDivider";
+import DashedDivider from "../../commons/components/elements/DashedDivider";
 
 export default function Index() {
   const [user] = useAuthState(auth);

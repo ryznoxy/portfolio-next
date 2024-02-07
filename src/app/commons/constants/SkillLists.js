@@ -43,7 +43,7 @@ export const STACKS_LIST = {
   PHP: <SiPhp size={iconSize} className="text-blue-500" />,
   JavaScript: <SiJavascript size={iconSize} className="text-yellow-400" />,
   TypeScript: <SiTypescript size={iconSize} className="text-blue-400" />,
-  "Next.js": <SiNextdotjs size={iconSize} />,
+  NextJS: <SiNextdotjs size={iconSize} />,
   "React.js": <SiReact size={iconSize} className="text-sky-500" />,
   TailwindCSS: <SiTailwindcss size={iconSize} className="text-cyan-300" />,
   Bootstrap: (
