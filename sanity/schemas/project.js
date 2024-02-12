@@ -55,11 +55,13 @@ export default {
       name: 'is_show',
       title: 'Show',
       type: 'boolean',
+      intialValue: true,
     },
     {
       name: 'is_featured',
       title: 'Featured',
       type: 'boolean',
+      intialValue: false,
     },
     // {
     //   name: 'params',
